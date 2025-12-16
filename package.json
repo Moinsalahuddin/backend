@@ -1,0 +1,39 @@
+{
+  "name": "luxurystay-backend",
+  "version": "1.0.0",
+  "description": "Backend server for LuxuryStay Hotel Management System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "create-receptionist": "node scripts/createReceptionist.js",
+    "create-admin": "node scripts/createAdmin.js",
+    "create-guest": "node scripts/createGuest.js",
+    "reset-admin-password": "node scripts/resetAdminPassword.js",
+    "test-admin": "node scripts/testAdminLogin.js",
+    "seed-dashboard": "node scripts/seedDashboardData.js",
+    "seed-all": "node scripts/seedAllDashboards.js",
+    "seed-professional": "node scripts/seedProfessionalData.js",
+    "add-room-images": "node scripts/addRoomImages.js",
+    "add-gallery-images": "node scripts/addSampleGalleryImages.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^2.8.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "google-auth-library": "^10.5.0",
+    "html2canvas": "^1.4.1",
+    "jsonwebtoken": "^9.0.2",
+    "jspdf": "^3.0.4",
+    "mongoose": "^8.0.3",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^7.0.10",
+    "pdfkit": "^0.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
