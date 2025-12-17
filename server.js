@@ -12,6 +12,19 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Health check routes for Railway
+app.get('/', (req, res) => {
+  res.json({ 
+    status: 'ok', 
+    message: 'LuxuryStay API is running',
+    timestamp: new Date().toISOString()
+  });
+});
+
+app.get('/health', (req, res) => {
+  res.json({ status: 'healthy' });
+});
+
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/users', require('./routes/users'));
@@ -37,9 +50,10 @@ mongoose.connect(MONGODB_URI)
   console.log('✅ MongoDB Connected Successfully');
   console.log('📊 Database:', mongoose.connection.name);
   console.log('🌐 Host:', mongoose.connection.host);
-  app.listen(PORT, () => {
+  app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 Server is running on port ${PORT}`);
     console.log(`📡 API available at http://localhost:${PORT}/api`);
+    console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
   });
 })
 .catch((error) => {
